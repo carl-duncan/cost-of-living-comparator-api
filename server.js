@@ -22,7 +22,13 @@ app.get('/scrape', async (req, res) => {
             }
         });
 
-        res.json(citiesAndIndices);
+        const sortedCitiesAndIndices = citiesAndIndices.sort((a, b) => {
+            if (a.city < b.city) return -1;
+            if (a.city > b.city) return 1;
+            return 0;
+        });
+
+        res.json(sortedCitiesAndIndices);
     } catch (error) {
         res.status(500).send('Error fetching data' + error);
     }
