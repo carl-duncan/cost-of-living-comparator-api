@@ -22,6 +22,7 @@ app.get('/scrape', async (req, res) => {
             }
         });
 
+
         const sortedCitiesAndIndices = citiesAndIndices.sort((a, b) => {
             if (a.city < b.city) return -1;
             if (a.city > b.city) return 1;
