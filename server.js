@@ -15,7 +15,7 @@ app.get('/scrape', async (req, res) => {
 
         $('tr').each((i, row) => {
             const city = $(row).find('.cityOrCountryInIndicesTable').text().trim();
-            const index = parseFloat($(row).find('td').eq(2).text().trim());
+            const index = parseFloat($(row).find('td').eq(4).text().trim());
 
             if (city && !isNaN(index)) {
                 citiesAndIndices.push({ city, index });
